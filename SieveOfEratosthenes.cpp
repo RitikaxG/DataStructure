@@ -5,12 +5,14 @@ using namespace std;
 void Primes(int n);
 bool isPrime(int n);
 void Sieve(int n);
+void SievePro(int n);
+void SieveProMax(int n);
 int main(){
 int num;
 cout<<"Enter a number:";
 cin>>num;
 cout<<"All prime numbers less than "<<num<<" are:";
-Sieve(num);
+SieveProMax(num);
 return 0;
 }
 //Naive Solution: Time Complexity = O(n * sqaure_root(n)) = O(n^3/2)
@@ -42,5 +44,33 @@ for(int i=2;i<=n;i++){
 if(isPrime[i])
 cout<<i<<" ";
 }
+}
+
+//Optimized Solution
+void SievePro(int n){
+    vector<bool> isPrime(n+1,true);
+    for(int i=2;i*i<=n;i++){ //Replace 2*i with i*i , i^2 , i^2 +i , i^2 + 2i , Smaller divisors will already be considered in earlier loop
+        if(isPrime[i]){
+            for(int j=i*i;j<=n;j=j+i)
+            isPrime[j]=false;
+        }
+    }
+    for(int i=2;i<=n;i++){
+        if(isPrime[i])
+        cout<<i<<" ";
+    }
+}
+
+//Shorter Implementation of Optimized Solution
+//Time Complexity: O(n log logn)
+void SieveProMax(int n){
+    vector<bool> isPrime(n+1,true);
+    for(int i=2;i<=n;i++){ //
+        if(isPrime[i])
+        cout<<i<<" ";
+        for(int j=i*i;j<=n;j=j+i){ //When i>square_root(n) inner loop will not run
+            isPrime[j]=false;
+        }
+    }
 }
 
