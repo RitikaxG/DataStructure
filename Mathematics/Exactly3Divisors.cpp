@@ -4,7 +4,8 @@
 using namespace std;
 class Solution{
     public:
- 
+ //    Expected Time Complexity : O(N1/2 * N1/4)
+//    Expected Auxilliary Space :  O(1)
     
     bool is_prime(int N){
         if(N<=1)
