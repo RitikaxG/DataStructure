@@ -1,3 +1,6 @@
+
+# Expected Time Complexity : O(N)
+# Expected Auxilliary Space : O(1)
 import math
 def digitsInFactorial(N):
         # code here
