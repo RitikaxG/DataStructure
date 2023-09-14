@@ -52,6 +52,7 @@ void isKthPro(int n,int k){
     cout<<"No";
 }
 
+//right shift n by k-1, we get the last bit as 1 if the Kth bit is set else 0
 void isKthPro2(int n,int k){
     int x;
     for(int i=0;i<(k-1);i++)
@@ -61,9 +62,17 @@ void isKthPro2(int n,int k){
     else
     cout<<"No";
 }
-
+//Time Complexity: O(1)
+//Auxiliary Space: O(1)
 void isKthSetProMax(int n,int k){
     if(n&(1<<(k-1))==0)
+        cout<<"SET";
+    else
+        cout<<"NOT SET";
+}
+
+void isKthSetProMax2(int n,int k){
+    if(((n>>(k-1))&1)==0)
         cout<<"SET";
     else
         cout<<"NOT SET";
