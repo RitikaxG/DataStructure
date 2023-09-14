@@ -61,4 +61,10 @@ void isKthPro2(int n,int k){
     else
     cout<<"No";
 }
-    
+
+void isKthSetProMax(int n,int k){
+    if(n&(1<<(k-1))==0)
+        cout<<"SET";
+    else
+        cout<<"NOT SET";
+}
