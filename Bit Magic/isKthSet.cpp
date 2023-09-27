@@ -64,16 +64,28 @@ void isKthPro2(int n,int k){
 }
 //Time Complexity: O(1)
 //Auxiliary Space: O(1)
-void isKthSetProMax(int n,int k){
-    if(n&(1<<(k-1))==0)
-        cout<<"SET";
-    else
-        cout<<"NOT SET";
+
+void isKthSetProMax(int n, int k) {
+    if (k <= 0 || k > sizeof(int) * 8) {
+        cout << "Invalid value of k";
+    } else if (n & (1 << (k - 1)) == 0) {
+        cout << "SET";
+    } else {
+        cout << "NOT SET";
+    }
 }
 
-void isKthSetProMax2(int n,int k){
-    if(((n>>(k-1))&1)==0)
-        cout<<"SET";
-    else
-        cout<<"NOT SET";
+void isKthSetProMax2(int n, int k) {
+    if (k <= 0 || k > sizeof(int) * 8) {
+        cout << "Invalid value of k";
+    } else if (((n >> (k - 1)) & 1) == 0) {
+        cout << "SET";
+    } else {
+        cout << "NOT SET";
+    }
 }
+
+
+
+
+
